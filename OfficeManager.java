@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gui;
+
+import static gui.ProcessCommands.IDS;
+import java.util.ArrayList;
+
+
+/**
+ *
+ * @author KinkyKat
+ */
+public class OfficeManager extends Login {
+    String username;
+    String password;
+    String fName;
+    String lName;
+    String email;
+    
+    public OfficeManager(String fName, String lName, String email, String username, String password) {
+        super(fName, lName, email, username, password);
+    }
+    
+        public String examineByPartName(String name) {
+        for (int i = 0; i < IDS.size(); i++) {
+            if (IDS.get(i).getName().equals(name)) {
+                return IDS.get(i).getName() + " " + IDS.get(i).getRightPrice();
+            }
+        }
+        return "part not found";
+    }    
+    
+    public String examineByPartNum(int x) {
+        for (int i = 0; i < IDS.size(); i++) {
+            if (IDS.get(i).getNum() == (x)) {
+                return IDS.get(i).getName() + " " + IDS.get(i).getRightPrice();
+            }
+        }
+        return "part not found";
+    }
+    
+    public void checkParts(ArrayList<BikePart> IDS){
+        String c = "";
+        for(int i = 0; i < IDS.size(); i ++) {
+            if(IDS.get(i).getQuantity() < 5) {
+                IDS.get(i).setQuantity(5);
+            }
+        }
+    }
+    
+    
+    
+    
+}
+
