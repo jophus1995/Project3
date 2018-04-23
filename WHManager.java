@@ -22,9 +22,8 @@ public class WHManager extends Login {
     }
     ArrayList<BikePart> total = new ArrayList<BikePart>();
     
-    public String update(String welp) {
-            
-            ArrayList<BikePart> blank = readFile(welp);
+    public String update(String fileName) {
+            ArrayList<BikePart> blank = readFile(fileName);
             total = read(blank, total);
         return "warehouse updated";
     }
@@ -38,13 +37,19 @@ public class WHManager extends Login {
         return "part not found";
     }    
     
-    public String examineByPartNum(int x) {
+    public String examineByPartNum(int partNum) {
         for (int i = 0; i < IDS.size(); i++) {
-            if (IDS.get(i).getNum() == (x)) {
+            if (IDS.get(i).getNum() == (partNum)) {
                 return IDS.get(i).getName() + " " + IDS.get(i).getRightPrice();
             }
         }
         return "part not found";
     }
 
+    public String getUserName(){
+        return username;
+    }
+    public String getPassword(){
+        return password;
+    }
 }

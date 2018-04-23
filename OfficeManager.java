@@ -6,6 +6,7 @@
 package gui;
 
 import static gui.ProcessCommands.IDS;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -33,26 +34,24 @@ public class OfficeManager extends Login {
         return "part not found";
     }    
     
-    public String examineByPartNum(int x) {
+    public String examineByPartNum(int partNum) {
         for (int i = 0; i < IDS.size(); i++) {
-            if (IDS.get(i).getNum() == (x)) {
+            if (IDS.get(i).getNum() == (partNum)) {
                 return IDS.get(i).getName() + " " + IDS.get(i).getRightPrice();
             }
         }
         return "part not found";
     }
     
-    public void checkParts(ArrayList<BikePart> IDS){
+    public String checkParts(ArrayList<BikePart> IDS){
         String c = "";
         for(int i = 0; i < IDS.size(); i ++) {
             if(IDS.get(i).getQuantity() < 5) {
                 IDS.get(i).setQuantity(5);
-            }
+              return IDS.get(i).toString();
+    }
         }
+        return "Parts to be ordered";
     }
     
-    
-    
-    
 }
-

@@ -20,7 +20,6 @@ public class SysAdmin extends Login {
     public SysAdmin(String fName, String lName, String email, String username, String password) {
         super(fName, lName, email, username, password);
     }
-    SysAdmin admin = new SysAdmin("", "", "", "admin","minda");
     
     public void addOfficeManager(String fName, String lName, String email, String username, String password){
         OfficeManager o = new OfficeManager(fName,lName,email,username,password);
@@ -39,7 +38,7 @@ public class SysAdmin extends Login {
     
     public void deleteAccount(String username){
         for(int i = 0;i < accounts.size(); i ++){
-            if(accounts.get(i).getUsername().equals(username)){
+            if(accounts.get(i).getUserName().equals(username)){
                 accounts.remove(i);
             }
         }
@@ -47,7 +46,7 @@ public class SysAdmin extends Login {
     
     public void resetPassword(String username){
          for(int i = 0;i < accounts.size(); i ++){
-            if(accounts.get(i).getUsername().equals(username)){
+            if(accounts.get(i).getUserName().equals(username)){
                 accounts.get(i).setPassword("password");
             }
          }   

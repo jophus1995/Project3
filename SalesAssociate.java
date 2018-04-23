@@ -14,7 +14,11 @@ public class SalesAssociate extends Login {
     public SalesAssociate(String fName, String lName, String email, String username, String password) {
         super(fName, lName, email, username, password);
     }
- 
     
-    
+    public String getUserName(){
+        return username;
+    }
+    public String getPassword(){
+        return password;
+    }
 }
